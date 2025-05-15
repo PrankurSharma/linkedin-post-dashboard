@@ -6,7 +6,7 @@ export default function PostCard({ data }) {
     const totalReactions = parseInt(data?.socialActivityCountsInsight?.totalReactionCount);
 
     const repostInfo = data?.resharedPost || {};
-    const postedDate = data?.postedData ? new Date(data?.postedDate).toLocaleString("en-US", { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' }) : "";
+    const postedDate = data?.postedDate ? new Date(data?.postedDate).toLocaleString("en-US", { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' }) : "";
 
     const toggleRepost = () => {
         setOpenPost(openPost => !openPost);

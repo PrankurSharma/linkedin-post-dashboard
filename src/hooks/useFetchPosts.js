@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function useFetchPosts (searchTerm) {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [data, setData] = useState({});
     const controllerRef = useRef(null);
