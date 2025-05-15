@@ -34,12 +34,16 @@ export default function useFetchPosts (searchTerm) {
             .then((data) => {
                 if (data.success) {
                     setData(data.data);
+                    setError("");
                 }
                 else {
                     setError(data.message);
                 }
             })
-            .catch((err) => setError(err.message))
+            .catch((err) => {
+                if (err.name !== 'AbortError') {
+                    setError(err.message)
+                }})
             .finally(() => setLoading(false));
         }
 

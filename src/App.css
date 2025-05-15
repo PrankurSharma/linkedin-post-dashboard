@@ -19,6 +19,15 @@ body {
   padding: 20px;
 }
 
+.err-class {
+  border: 1px solid #B00020;
+  width: 100%;
+  background: #B00020;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
 .outer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

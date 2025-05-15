@@ -37,9 +37,12 @@ export default function Dashboard() {
         return <div>Loading...</div>;
     }
     return (
+        <>
+        {error && <div className="err-class">{error}</div>}
         <div>
             <Filters onSearch={handleSearch} onFilterChange={handleFilterChange} />
             <Posts data={filteredData} searchTerm={searchTerm} activeFilters={activeFilters}/>
         </div>
+        </>
     );
 }
