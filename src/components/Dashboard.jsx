@@ -8,14 +8,14 @@ export default function Dashboard() {
     const { data, loading, error } = useFetchPosts(searchTerm);
     const [activeFilters, setActiveFilters] = useState([]);
     const filteredData = useMemo(() => {
-        const myData = activeFilters.length > 0 ? data?.items?.filter((item) => {
+        const myData = activeFilters.length > 0 ? data?.items ? data?.items?.filter((item) => {
                 const checks = [];
                 if (activeFilters.includes('original')) checks.push(!item.reposted);
                 if (activeFilters.includes('reshared')) checks.push(item.reposted);
                 if (activeFilters.includes('video')) checks.push(item.video?.video ? true : false);
 
                 return checks.every(Boolean);
-            }) : data?.items ? [...data.items] : [];
+            }) : [] : data?.items ? [...data.items] : [];
         const final = {
             ...data,
             items: [...myData]
